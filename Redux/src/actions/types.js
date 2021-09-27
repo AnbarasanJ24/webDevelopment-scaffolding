@@ -1,0 +1,1 @@
+const TYPE_NAME = '[REDUCER] TYPE_NAME'

@@ -10,7 +10,7 @@ export const actionCreatorName = (payload) => {
 }
 
 // Action creator is responsible for Making API call
-// If action creator return function then same will be handled by redxu thunk 
+// If action creator return function then same will be handled by redux thunk 
 
 export const apiCall = () => async dispatch => {
     const response = await jsonPlaceHolder.get('/posts');
