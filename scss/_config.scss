@@ -1,0 +1,24 @@
+//  It will take all variable, mixin, functions.
+
+$font-stack: Helvetica, sans-serif;
+$light-color: #0e6cff;
+$primary-color: #f4f4f4;
+// $primary-color: #e0ffff;
+$secondary-color: #ff8700;
+
+// Mixins & Functions
+
+// Set fonmt color based on background
+
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
