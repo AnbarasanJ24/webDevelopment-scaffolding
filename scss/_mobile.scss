@@ -1,24 +1,18 @@
-@media (max-width: 700px) {
-  .showcase {
-    height: 100vh;
-    font-size: 0.75rem;
+$breakPoints: (
+  mobile: 480px,
+  tablet: 768px,
+  desktop: 1440px,
+);
 
-    nav {
-      h1 {
-        font-size: 1rem;
-      }
-
-      a {
-        font-size: 0.7rem;
-      }
-    }
-
-    &-content {
-      text-align: center;
-
-      img {
-        display: none;
+@mixin query($screen) {
+  @each $key, $value in $breakPoints {
+    @if ($key == $screen) {
+      @media (max-width: $value) {
+        @content;
       }
     }
   }
+}
+
+@include query(desktop) {
 }
