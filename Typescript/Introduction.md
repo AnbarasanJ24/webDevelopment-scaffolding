@@ -18,3 +18,19 @@ Code Setup
 
 Integarate Typescript in React 
     1. create a project using npx create-react-app . --template typescript
+
+Integarate Typescript in Node & Express
+    1. Install required dependencies npm i -D typescript ts-node @types/node @types/express
+    2. On running tsc inside src will take ts file and complie into JS file
+    3. we can initialize ts config using tsc --init and also modify output, root direcectory and module resolution
+    {
+        "outDir" : './dist',
+        "rootDir" : './src',
+        "moduleResultion: : 'node'
+    }
+    4. Add below commands in packege.json file
+    {
+        "start" : "node dist/app.js",
+        "dev": "nodemon src/app.ts",
+        "build" :"tsc -p ."
+    }
