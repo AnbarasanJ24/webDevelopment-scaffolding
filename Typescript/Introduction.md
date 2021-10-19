@@ -16,10 +16,10 @@ Code Setup
     3. we can watch teh file using tsc --watch index  or tsc --watch
     4. To create config file use tsc -init
 
-Integarate Typescript in React 
+Integrate Typescript in React 
     1. create a project using npx create-react-app . --template typescript
 
-Integarate Typescript in Node & Express
+Integrate Typescript in Node & Express
     1. Install required dependencies npm i -D typescript ts-node @types/node @types/express
     2. On running tsc inside src will take ts file and complie into JS file
     3. we can initialize ts config using tsc --init and also modify output, root direcectory and module resolution
