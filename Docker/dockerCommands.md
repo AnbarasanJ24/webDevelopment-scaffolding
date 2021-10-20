@@ -16,7 +16,7 @@ Display all conatiner   => docker container ls or docker ps -a
 Logs                    => docker logs conatinerId/name 
 Excecute Other commands => docker exec -it containerId/Name sh/bash/zh/powershell
                            docker run -it -d -p localHostPort:applicationPort --name newContainerName imageName:tag sh(zh/bash/powershell)
-
+Override commands       => docker run imageName:tag npm run test
 
 All conatiner Id                 => docker ps -aq
 Delete Stopped container         => docker rm $(docker ps -aq)
@@ -30,3 +30,4 @@ Volume b/w containers        => docker run -d -p 8080:80 --name conatinerName --
 Login     => docker login (username: anbarasan24)
 Commit    => docker commit containerName username/dockerHubName:tag
 Push      => docker push  username/dockerHubName:tag   
+
