@@ -1,12 +1,12 @@
 # Image commands
 
-Pull Image => docker pull imageName:tag Ex: docker pull nginx:latest
-Run Image  => docker run -d -port localHostPort:applicationPort --name newContainerName imageName:tag
-           Ex:docker run -d -port 8000:80 --name nginxContainer nginx:latest
-Docker Run => docker create imageName:tage return conatiner id (Docker run => Docker create + start)
-              docker start -a conatinerId
-Build Image=> docker build -t imagename:tag .
-
+Pull Image                 => docker pull imageName:tag Ex: docker pull nginx:latest
+Run Image                  => docker run -d -port localHostPort:applicationPort --name newContainerName imageName:tag
+                           Ex:docker run -d -port 8000:80 --name nginxContainer nginx:latest
+Docker Run                 => docker create imageName:tage return conatiner id (Docker run => Docker create + start)
+                              docker start -a conatinerId
+Build Image                => docker build -t imagename:tag .
+Build Image with File name => Docker build -f Dockerfile.dev || Docker build -f Dockerfile (For Production)
 
 # conatiner commands
 
