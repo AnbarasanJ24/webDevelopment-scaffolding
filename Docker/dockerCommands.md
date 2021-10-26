@@ -20,7 +20,7 @@ Override commands       => docker run imageName:tag npm run test
 
 All conatiner Id                 => docker ps -aq
 Delete Stopped container         => docker rm $(docker ps -aq)
-Clear all container with cacahe  => docker system prune 
+Clear all container with cacahe  => docker system prune -a
 
 # Create Volume
 Volume b/w Host & container  => docker run -d -p 8080:80 --name containerName -v $(pwd):usr/app/share:ro
