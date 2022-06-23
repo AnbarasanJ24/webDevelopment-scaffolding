@@ -20,7 +20,7 @@ export const apiCall = () => async dispatch => {
     })
 }
 
-export const apiCall = () => {
+export const apiCall1 = () => {
 
     return async function (dispatch, getState) {
         const response = await jsonPlaceHolder.get('/posts');

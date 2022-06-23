@@ -19,11 +19,10 @@ const mapStateToProps = (state) => {
     return { songs: state.requiredState }
 }
 
-// Connect function return state and disptach function
-// Connect function take state and map to props as first argument and get action creators 
-// Both state mapping and action creator will be passed as props in the object form 
-// We can directly use action selector in component but it 
-// should be only identified by redux when we pass in dispatch function 
+// Connect function add state and disptach function to the props
+// Connect function takes two arguments, mapStateToProps and get action creators
+// Both state mapping and action creator will be passed as props 
+// We can directly use action selector in component but it should be only identified by redux when we pass in dispatch function 
 
 // connect function take second argument automatically make it call using dispatch function 
 export default connect(mapStateToProps, { actionCreatorName: actionCreatorName })(ClassName);
