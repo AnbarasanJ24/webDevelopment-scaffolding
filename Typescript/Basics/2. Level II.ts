@@ -1,3 +1,33 @@
+// We can mention type to the object using type keyword 
+type User = {
+    id: number,
+    name: string
+}
+
+let user: User = {
+    id: 1,
+    name: 'Anbarasan'
+}
+
+// Type Assertion : we can change one type to another type
+let id1: any = 1;
+let userId = id1 as string;
+let userId1 = <number>id1;
+userId = 'user-1';
+
+
+// Functions
+let sum = (a: number, b: number): number => a + b;
+
+let sum1 = (a: number, b: number): number => {
+    return a + b;
+}
+
+type Message = string | number;
+let log = (message: Message): void => console.log(message);
+
+
+
 // Interface
 // Type can be used for both union and object but interface only work with object 
 // In case of Interface, all properties must be used by implementing object or class
@@ -43,3 +73,14 @@ class User1 implements PersonInterface {
 }
 
 let anbu = new User1(1, 'Anbu');
+
+
+// Generics - Used for reuseable component by passing dynamic type
+// Here getArray can give both number and string array 
+
+const getArr = <T>(items: T[]): T[] => {
+    return new Array().concat(items);
+}
+
+const numArr = getArr<number>([1, 2, 3, 4, 5]);
+const strArr = getArr<string>(['a', 'b', 'c', 'd']);

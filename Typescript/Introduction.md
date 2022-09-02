@@ -13,7 +13,7 @@ Dynamic Vs Static
 Code Setup
     1. Install typescript complier using npm -g typescript
     2. create a index.ts and complie it (ES5) using tsc index or tsc
-    3. we can watch teh file using tsc --watch index  or tsc --watch
+    3. we can watch the file using tsc --watch index  or tsc --watch
     4. To create config file use tsc -init
 
 Integrate Typescript in React 
