@@ -1,5 +1,5 @@
 What is Typescript?
-    1. Its a open source language, which give more features including static typing to JS
+    1. Its a open source language, which give more features such as strong typing, editor checks, auto complete, OOP, Generics and Decorators to JS
     2. Atlast it complies the code down to JS, inclused
     3. Used in both front end and back end (Node JS)
 
@@ -11,7 +11,7 @@ Dynamic Vs Static
     2. Static - During initialization we can assign types to varibales, function paramter and return values. (Java,Go)
 
 Code Setup
-    1. Install typescript complier using npm -g typescript
+    1. Install typescript complier using npm i -g typescript
     2. create a index.ts and complie it (ES5) using tsc index or tsc
     3. we can watch the file using tsc --watch index  or tsc --watch
     4. To create config file use tsc -init
