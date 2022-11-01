@@ -1,2 +1,2 @@
-var a1 = 5;
-var name1 = "anbu";
+var personName = 'Anbu';
+console.log(personName);

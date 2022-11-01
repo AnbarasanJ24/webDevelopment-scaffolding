@@ -1,4 +1,4 @@
-// Basic Types
+// Basic Types [boolean, number, string, bigint, any, unknown]
 let username: string = 'Anbu';
 let age: number = 25;
 let isEmployed: boolean = true;
