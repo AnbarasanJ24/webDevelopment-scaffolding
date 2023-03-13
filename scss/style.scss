@@ -1,6 +1,6 @@
-@import "config";
-@import "utility";
-@import "buttons";
+@use "config";
+@use  "utility";
+@use  "buttons";
 
 * {
   box-sizing: border-box;
@@ -21,6 +21,23 @@ body {
 img {
   max-width: 100%;
 }
+
+
+$primary-color : tomato;
+$secondary-color: white;
+
+.btn{
+  color: $primary-color;
+
+  &:hover{
+    color: $secondary-color;
+  }
+
+  &-primary{
+    background-color: $secondary-color;
+  }
+}
+
 
 .showcase {
   @include set-background($primary-color);
@@ -66,4 +83,5 @@ img {
   }
 }
 
-@import "mobile";
+@use  "mobile";
+
