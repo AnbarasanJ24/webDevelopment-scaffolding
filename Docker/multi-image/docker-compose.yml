@@ -1,0 +1,40 @@
+version: '3'
+services:
+
+  server:
+    container_name: server
+    image: server
+    build:
+      context: ./
+      dockerfile: ./server/src/main/docker/Dockerfile.jvm
+    ports:
+      - '8080:8080'
+  server-python:
+    container_name: server-python
+    image: server-python
+    build:
+      context: ./server-python
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+  client:
+    container_name: client
+    build:
+      context: ./
+      dockerfile: ./client/Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - server-python
+      - server
+  nginx:
+    container_name: nginx
+    depends_on:
+      - client
+      - server-python
+      - server
+    ports:
+      - "80:80"
+    build:
+      context: ./
+      dockerfile: ./nginx/Dockerfile

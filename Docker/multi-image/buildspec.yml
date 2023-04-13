@@ -1,0 +1,66 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      # - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+
+      - echo Building the UI Docker Image...
+      - docker build -t client . -f ./client/Dockerfile
+      - docker tag client:latest  $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/client:latest
+
+      - echo Building the API Docker Image...
+      - docker build -t server . -f ./server/src/main/docker/Dockerfile.jvm
+      - docker tag server:latest  $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/server:latest
+
+      - echo Building the Nginx Docker Image...
+      - docker build -t nginx . -f ./nginx/Dockerfile
+      - docker tag nginx:latest  $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/nginx:latest
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+      - echo Pushing the API Docker image...
+      - docker push  $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/server:latest
+
+      - echo Pushing the UI Docker image...
+      - docker push  $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/client:latest
+
+      - echo Pushing the NGINX Docker image...
+      - docker push  $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/nginx:latest
+artifacts:
+  files:
+    - "Dockerrun.aws.json"
+
+
+
+#Docker compose Version
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin  $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker-compose --file=docker-compose.yml build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker-compose --file=docker-compose.yml push
+artifacts:
+  files:
+    - "Dockerrun.aws.json"

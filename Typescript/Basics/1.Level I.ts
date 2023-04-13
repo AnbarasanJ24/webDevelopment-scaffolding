@@ -1,4 +1,4 @@
-// Basic Types
+// Basic Types in Typescript
 let username: string = 'Anbu';
 let age: number = 25;
 let isEmployed: boolean = true;

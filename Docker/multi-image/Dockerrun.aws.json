@@ -1,0 +1,70 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "server-python",
+      "image": "ImageURL",
+      "cpu": 0,
+      "memory": 300,
+      "links": [],
+      "essential": true,
+      "hostname": "server-python",
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000
+        }
+      ]
+    },
+    {
+      "name": "server",
+      "image": "ImageURL",
+      "cpu": 0,
+      "memory": 300,
+      "links": [],
+      "essential": true,
+      "hostname": "server",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080
+        }
+      ]
+    },
+    {
+      "name": "client",
+      "image": "ImageURL",
+      "cpu": 0,
+      "memory": 300,
+      "links": [],
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "hostname": "client"
+    },
+    {
+      "name": "nginx",
+      "image": "ImageURL",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "client",
+        "server",
+        "server-python"
+      ],
+      "cpu": 0,
+      "memory": 300
+    }
+  ]
+}
