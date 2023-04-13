@@ -11,12 +11,51 @@
   }
 }
 
-.btn-primary {
-  @extend %btn;
-  @include set-background(lighten($primary-color, 10%));
-}
-
 .btn-secondary {
   @extend %btn;
   @include set-background($secondary-color);
+}
+
+
+@function doubleFontSize($size) {
+  @return $size * 2;
+}
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+.btn-primary {
+  @include set-background($primary-color);
+  font-size: doubleFontSize(10px);
+}
+
+.inbuilt-function {
+  background-color: ligthen($primary-color, 50%);
+  background-color: darken($primary-color, 50%);
+  background-color: mix(red, white, 50%);
+}
+
+@mixin setFontSize($device) {
+
+  @if($device ==desktop) {
+    font-size: 2rem;
+  }
+
+  @if($device ==laptop) {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width : 1200px) {
+  .h1 {
+    @include setFontSize(desktop)
+  }
+}
+
+@media screen and (max-width : 992px) {
+  .h1 {
+    @include setFontSize(laptop)
+  }
 }
