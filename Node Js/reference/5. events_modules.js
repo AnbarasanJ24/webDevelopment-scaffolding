@@ -4,7 +4,7 @@
 const EventEmitter = require('events');
 
 class CustomEmitter extends EventEmitter {
-    custoom() {
+    custom() {
         console.log("Event Emitted")
     }
 }

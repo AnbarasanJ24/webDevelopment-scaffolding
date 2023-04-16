@@ -14,7 +14,7 @@ Start/Restart container          => docker start containerId/Name
 Stop container                   => docker stop containerId/name
 Logs                             => docker logs conatinerId/name 
 Display all conatiner            => docker container ls or docker ps -a
-Excecute Other commands          => docker exec -it containerId/Name sh/bash/zh/powershell
+Excecute Other commands          => docker exec -it containerId/Name sh/bash/zsh/powershell
                                     docker run -it -d -p localHostPort:applicationPort --name newContainerName imageName:tag sh(zh/bash/powershell)
 Override commands                => docker run imageName:tag npm run test
 
@@ -24,7 +24,7 @@ Clear all container with cache  => docker system prune -a
 
 # Create Volume
 Volume b/w Host & container      => docker run -d -p 8080:80 --name containerName -v $(pwd):usr/app/share:ro
-Volume b/w containers            => docker run -d -p 8080:80 --name conatinerName --volumes-from-sourceContainerName
+Volume b/w containers            => docker run -d -p 8080:80 --name conatinerName --volumes-from sourceContainerName
 
 # Push to Docker Hub
 Login                            => docker login (username: anbarasan24)

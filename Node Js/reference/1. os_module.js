@@ -27,7 +27,8 @@ console.log(os.totalmem());
 console.log(os.homedir());
 
 
-/* Get uptime => 788019 sec
+/* Get uptime => 788019 sec 
+[ How many hours the system is running]
 =========================== */
 console.log(os.uptime());
 
